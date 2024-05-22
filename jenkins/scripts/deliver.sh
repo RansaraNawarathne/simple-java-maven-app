@@ -26,6 +26,12 @@ set -x
 VERSION=`mvn -q -DforceStdout help:evaluate -Dexpression=project.version`
 set +x
 
+echo 'The following command will remove ANSI Color codes from NAME and VERSION'
+set -x
+NAME=$(echo $NAME | sed -r "s/\\x1b\\[[0-9;]*m//g")
+VERSION=$(echo $VERSION | sed -r "s/\\x1b\\[[0-9;]*m//g")
+set +x
+
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
