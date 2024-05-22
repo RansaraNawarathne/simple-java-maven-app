@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-#Disable ANSI Color Codings in console output
-echo 'The following Maven command disable ANSI Color Codings'
-set -x
-mvn package -Dsbt.log.noformat=true
-set +x
-
 echo 'The following Maven command installs your Maven-built Java application'
 echo 'into the local Maven repository, which will ultimately be stored in'
 echo 'Jenkins''s local Maven repository (and the "maven-repository" Docker data'
